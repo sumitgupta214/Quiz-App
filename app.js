@@ -92,6 +92,16 @@ app.get("/quiz", async (req, res) => {
   }
 });
 
+app.get("/user/:id", async (req,res)=>{
+  let { id } = req.params;
+  const user = await User.findById(id);
+  if(!user){
+    res.redirect("/home");
+  }else{
+    res.render("users/profile.ejs", {user});
+  }
+})
+
 const port = 3600;
 app.listen(port, () => {
   console.log("Server is Running on Port 8080");
