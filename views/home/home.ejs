@@ -1,0 +1,21 @@
+<% layout("/layouts/boilerplate")%>
+
+<div class="main-page">
+  <div class="banner">
+    <img
+      src="https://img.freepik.com/premium-vector/quiz-logo-with-speech-bubble-icon_149152-811.jpg"
+      alt="Quiz Image"
+    />
+    <div class="banner-content">
+      <h1>Welcome to the Quiz App</h1>
+      <p>Test your knowledge with our fun and challenging quizzes!</p>
+      <% if (!currUser) { %>
+        <button><a href="/login" class="no_underline">Play Quiz</a></button>
+      <% } %>
+      <% if (currUser) { %>
+        <button><a href="/quiz" class="no_underline">Play Quiz</a></button>
+      <% } %>
+      
+    </div>
+  </div>
+</div>
