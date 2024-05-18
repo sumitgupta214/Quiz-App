@@ -284,3 +284,29 @@ img {
   margin-bottom: 30px;
   margin-top: 25px;
 }
+
+/* public/styles.css */
+.carousel-container {
+  width: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-slide {
+  display: none;
+  text-align: center;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.prev-button, .next-button {
+  margin: 5px;
+}
+

@@ -4,12 +4,11 @@ const User = require("../Models/user.js");
 const passport = require("passport");
 
 router.get("/signup", async (req, res) => {
-  if(!req.user){
+  if (!req.user) {
     res.render("users/signup.ejs");
-  }else{
+  } else {
     res.redirect("/home");
   }
-  
 });
 
 router.post("/signup", async (req, res) => {
@@ -32,12 +31,11 @@ router.post("/signup", async (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  if(req.user){
+  if (req.user) {
     res.redirect("/home");
-  }else{
+  } else {
     res.render("users/login.ejs");
   }
-  
 });
 
 router.post(
@@ -60,6 +58,16 @@ router.get("/logout", (req, res) => {
     req.flash("success", "You are Logged Out");
     res.redirect("/login");
   });
+});
+
+router.get("/user/:id", async (req, res) => {
+  let { id } = req.params;
+  const user = await User.findById(id);
+  if (!user) {
+    res.redirect("/home");
+  } else {
+    res.render("users/profile.ejs", { user, feedback: null });
+  }
 });
 
 module.exports = router;

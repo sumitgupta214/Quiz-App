@@ -2,22 +2,40 @@
 
 <h2 class="main-heading">All Questions</h2>
 
+<link rel="stylesheet" type="text/css" href="/crousel/crousel.css">
 
 
-<form action="/home" method="POST">
-    <% questions.forEach((q, index) => { %>
-        <div>
-            <h2><%= q.title %></h2>
-            <% q.options.forEach(option => { %>
-                <div>
-                    <input type="radio" id="<%= `answer${index}_${option}` %>" name="<%= `answer${index}` %>" value="<%= option %>" required>
-                    <label for="<%= `answer${index}_${option}` %>"><%= option %></label>
+<div class="crousel-body">
+    <div class="carousel-container">
+        <form id="quizForm" action="/home" method="POST">
+            <% questions.forEach((q, index) => { %>
+                <div class="carousel-slide" id="slide<%= index %>">
+                    <h2><%= q.title %></h2>
+                    <% q.options.forEach(option => { %>
+                        <div class="option">
+                            <input type="radio" id="<%= `answer${index}_${option}` %>" name="<%= `answer${index}` %>" value="<%= option %>" required>
+                            <label for="<%= `answer${index}_${option}` %>"><%= option %></label>
+                        </div>
+                    <% }) %>
+                    <div class="button-container">
+                        <% if (index > 0) { %>
+                            <button type="button" class="prev-button" data-index="<%= index %>">Previous</button>
+                        <% } %>
+                        <% if (index < questions.length - 1) { %>
+                            <button type="button" class="next-button" data-index="<%= index %>">Next</button>
+                        <% } else { %>
+                            <button type="submit" class="submit-button">Submit</button>
+                        <% } %>
+                    </div>
                 </div>
             <% }) %>
-        </div>
-    <% }) %>
-    <button type="submit">Submit</button>
-</form>
+        </form>
+    </div>
+</div>
+
+
+
+<script src="/script.js"></script>
 
 
 

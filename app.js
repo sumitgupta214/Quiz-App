@@ -58,7 +58,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", async (req, res) => {
-  res.send("Hi How Are You");
+  res.redirect("/home");
 });
 
 //connecting flash
@@ -94,15 +94,6 @@ app.get("/quiz", async (req, res) => {
   }
 });
 
-app.get("/user/:id", async (req,res)=>{
-  let { id } = req.params;
-  const user = await User.findById(id);
-  if(!user){
-    res.redirect("/home");
-  }else{
-    res.render("users/profile.ejs", {user,feedback : null});
-  }
-})
 
 const port = 3600;
 app.listen(port, () => {
