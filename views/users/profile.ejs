@@ -1,3 +1,7 @@
 <% layout("/layouts/boilerplate")%> 
 <br><br><br>
 <h2>Hi! <%= user.username %></h2>
+
+<% if (feedback) { %>
+    <p><%= feedback %></p>
+<% } %>

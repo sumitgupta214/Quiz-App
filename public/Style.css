@@ -1,4 +1,6 @@
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -232,4 +234,53 @@ img {
 
 .f-info-links :hover {
   text-decoration: underline;
+}
+
+/* cards */
+
+.listing-card {
+  border: none !important;
+  margin-bottom: 4rem;
+  /* height: 350px !important; */
+  border:  2px solid #000 !important;
+  margin-right: 10px !important;
+}
+
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-text {
+  font-weight: 400 !important;
+}
+
+.listing-link {
+  text-decoration: none !important;
+}
+
+/* Card Effect */
+.card-img-overlay {
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: #fff;
+}
+
+/* New Page */
+.add-button {
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+.main-heading{
+  margin-bottom: 30px;
+  margin-top: 25px;
 }

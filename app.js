@@ -12,6 +12,7 @@ const LocalStatergy = require("passport-local");
 const Question = require("./Models/quiz.js");
 const userRouter = require("./routes/user.js");
 const homeRouter = require("./routes/home.js");
+const bodyParser = require("body-parser");
 main()
   .then(() => {
     console.log("DataBase Connected");
@@ -54,6 +55,7 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 //Applying css
 app.use(express.static(path.join(__dirname, "/public")));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", async (req, res) => {
   res.send("Hi How Are You");
@@ -88,7 +90,7 @@ app.get("/quiz", async (req, res) => {
     res.redirect("/login");
   } else {
     const allQuestions = await Question.find({});
-    res.render("home/quiz.ejs", { allQuestions });
+    res.render("home/quiz.ejs", { questions: allQuestions });
   }
 });
 
@@ -98,7 +100,7 @@ app.get("/user/:id", async (req,res)=>{
   if(!user){
     res.redirect("/home");
   }else{
-    res.render("users/profile.ejs", {user});
+    res.render("users/profile.ejs", {user,feedback : null});
   }
 })
 
