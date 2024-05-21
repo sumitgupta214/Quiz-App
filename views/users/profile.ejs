@@ -1,7 +1,17 @@
 <% layout("/layouts/boilerplate")%> 
 <br><br><br>
-<h2>Hi! <%= user.username %></h2>
+<h2 style="margin-bottom: 30px;">Hi! <%= user.username.toUpperCase()  %></h2>
+
 
 <% if (feedback) { %>
-    <p><%= feedback %></p>
+    <p style="color: rgb(36, 155, 115);"><%= feedback %></p>
 <% } %>
+
+<h2 style="color: #fe424d;">Recent Activity : </h2>
+
+<% user.attempts.forEach((at,idx) => { %>
+    <div class="attempts-box" style="display: flex; justify-content: space-between; border: 1px solid #000; padding: 8px; align-items: center; border-radius: 10px;">
+        <h5><%= idx+1 %>:  Answered Correctly <%= at %> Questions Out of 10 Questions.</h5>
+        <p style="margin-right: 8px; text-align: center;">Score = <%= at %>/10</p>
+    </div>
+<% }) %>

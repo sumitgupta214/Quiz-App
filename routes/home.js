@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Question = require("../Models/quiz");
+const User = require("../Models/user.js");
 
 router.get("/", async (req, res) => {
   res.render("home/home.ejs");
@@ -19,6 +20,10 @@ router.post("/", async (req, res) => {
       incorrectCount++;
     }
   });
+  let user = await User.findById(req.user);
+  console.log(user);
+  user.attempts.push(correctCount);
+  await user.save();
   const feedback = `You got ${correctCount} correct and ${incorrectCount} incorrect answers.`;
   res.render("users/profile.ejs", {user:req.user,feedback: feedback });
 });

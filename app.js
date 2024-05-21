@@ -10,6 +10,9 @@ const passport = require("passport");
 const session = require("express-session");
 const LocalStatergy = require("passport-local");
 const Question = require("./Models/quiz.js");
+const JavaQuestion = require("./Models/java.js");
+const PythonQuestion = require("./Models/python.js");
+const DSAQuestion = require("./Models/dsa.js");
 const userRouter = require("./routes/user.js");
 const homeRouter = require("./routes/home.js");
 const bodyParser = require("body-parser");
@@ -85,7 +88,11 @@ app.use((req, res, next) => {
 
 //Index Route
 
-app.get("/quiz", async (req, res) => {
+app.get("/quiz", async(req,res)=>{
+  res.render("home/homequiz.ejs");
+});
+
+app.get("/quiz/generalquiz", async (req, res) => {
   if (!req.user) {
     res.redirect("/login");
   } else {
@@ -94,6 +101,33 @@ app.get("/quiz", async (req, res) => {
   }
 });
 
+app.get("/quiz/java", async (req, res) => {
+  if (!req.user) {
+    res.redirect("/login");
+  } else {
+    const allQuestions = await JavaQuestion.find({});
+    res.render("home/quiz.ejs", { questions: allQuestions });
+  }
+});
+
+
+app.get("/quiz/python", async (req, res) => {
+  if (!req.user) {
+    res.redirect("/login");
+  } else {
+    const allQuestions = await PythonQuestion.find({});
+    res.render("home/quiz.ejs", { questions: allQuestions });
+  }
+});
+
+app.get("/quiz/dsa", async (req, res) => {
+  if (!req.user) {
+    res.redirect("/login");
+  } else {
+    const allQuestions = await DSAQuestion.find({});
+    res.render("home/quiz.ejs", { questions: allQuestions });
+  }
+});
 
 const port = 3600;
 app.listen(port, () => {

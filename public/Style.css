@@ -1,127 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-.slider {
-  width: 800px;
-  text-align: center;
-  overflow: hidden;
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  /* display: flex;
+  flex-direction: column;
+  min-height: 100vh; */
 }
 
-.slides {
+.app-icon{
+  color: #fe424d;
+  font-weight: 900;
+  font-size: 26px;
+  cursor:not-allowed;
+}
+
+
+.container {
+  flex: 1;
+}
+
+.navbar {
+  min-height: 5rem;
+  background: #fff;
+}
+
+.fa-compass {
+  color: #fe424d;
+  font-size: 3rem;
+}
+
+.nav-link {
+  color: #222222 !important;
+  font-size: 1.2rem !important;
+  align-self: center;
+}
+
+
+
+/*-- card ---*/
+.card-body {
   display: flex;
-
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-
-  /*
-    scroll-snap-points-x: repeat(800px);
-    scroll-snap-type: mandatory;
-    */
-}
-.slides::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-.slides::-webkit-scrollbar-thumb {
-  background: black;
-  border-radius: 10px;
-}
-.slides::-webkit-scrollbar-track {
-  background: transparent;
-}
-.slides > div {
-  scroll-snap-align: start;
-  flex-shrink: 0;
-  width: 800px;
-  height: 500px;
-  margin-right: 50px;
-  border-radius: 10px;
-  background: #eee;
-  transform-origin: center center;
-  transform: scale(1);
-  transition: transform 0.5s;
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-}
-.author-info {
-  background: rgba(0, 0, 0, 0.75);
-  color: white;
-  padding: 0.75rem;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   margin: 0;
-}
-.author-info a {
-  color: white;
-}
-img {
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  font-family: Arial, sans-serif;
+  margin: 40px 20px;
 }
 
-.slider > a {
-  display: inline-flex;
-  width: 1.5rem;
-  height: 1.5rem;
-  background: white;
-  text-decoration: none;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  margin: 0 0 0.5rem 0;
-  position: relative;
-}
-.slider > a:active {
-  top: 1px;
-}
-.slider > a:focus {
-  background: #000;
-}
-
-/* Don't need button navigation */
-/* @supports (scroll-snap-type) {
-  .slider > a {
-    display: none;
-  }
-} */
-
-.box {
-  height: 100%;
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-}
-.box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: "Ropa Sans", sans-serif;
+  text-align: center;
+  width: 500px;
+  transition: transform 0.3s;
 }
 
-.quiz-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+.card:hover {
+  transform: translateY(-10px);
 }
 
-.main-page {
+.card-image {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-heading {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.card-button {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+}
+
+.quiz-body-display{
+  display: flex;
+  flex-wrap: wrap;
+  flex:1;
+}
+
+/*--Home banner--*/
+.banner-body {
   margin: 0;
   font-family: Arial, sans-serif;
   display: flex;
@@ -131,15 +113,15 @@ img {
 }
 
 .banner {
-  width: 80%;
-  max-width: 800px;
+  width: 100%;
   border-radius: 10px;
+  height: 80%;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .banner img {
-  width: 100%;
+  width: 85%;
   height: 90%;
   display: block;
 }
@@ -170,7 +152,7 @@ img {
   padding: 10px 20px;
   font-size: 16px;
   color: white;
-  background-color: #007bff;
+  background-color: #007BFF;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -180,98 +162,15 @@ img {
 .banner-content button:hover {
   background-color: #0056b3;
 }
-.no_underline {
+
+.no_underline{
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 
-.container {
+.container{
   flex: 1;
-}
-
-.navbar {
-  height: 5rem;
-  background: #fff;
-}
-
-.fa-compass {
-  color: #fe424d;
-  font-size: 2rem;
-}
-
-.nav-link {
-  color: #222222 !important;
-}
-
-.footer-info {
-  text-align: center;
-  height: 10rem;
-  background-color: gray;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: space-evenly;
-}
-
-.f-info-links,
-.f-info-socials,
-.f-info-brand {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.f-info-socials i {
-  font-size: 1.2rem;
-  margin: 2rem;
-}
-
-.f-info-links {
-  text-decoration: none;
-  color: #222222;
-}
-
-.f-info-links :hover {
-  text-decoration: underline;
-}
-
-/* cards */
-
-.listing-card {
-  border: none !important;
-  margin-bottom: 4rem;
-  /* height: 350px !important; */
-  border:  2px solid #000 !important;
-  margin-right: 10px !important;
-}
-
-.card-img-top {
-  border-radius: 1rem !important;
-  width: 100% !important;
-  object-fit: cover !important;
-}
-
-.card-body {
-  padding: 0 !important;
-}
-
-.card-text {
-  font-weight: 400 !important;
-}
-
-.listing-link {
-  text-decoration: none !important;
-}
-
-/* Card Effect */
-.card-img-overlay {
-  opacity: 0;
-}
-
-.card-img-overlay:hover {
-  opacity: 0.2;
-  background-color: #fff;
+  /* display: inline; */
 }
 
 /* New Page */
@@ -280,33 +179,27 @@ img {
   border: none !important;
 }
 
-.main-heading{
-  margin-bottom: 30px;
-  margin-top: 25px;
+
+/* show Page */
+.show-img{
+  height: 30vh;
 }
 
-/* public/styles.css */
-.carousel-container {
-  width: 50%;
-  margin: 0 auto;
-  overflow: hidden;
-  position: relative;
+.btns{
+  display: flex;
 }
 
-.carousel-slide {
-  display: none;
-  text-align: center;
+.show-card{
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.carousel-slide.active {
-  display: block;
+.banner-content button{
+  margin: 5px 5px;
 }
 
-.button-container {
-  margin-top: 20px;
+@media screen and (max-width:800px) {
+  .card{
+    width: 310px;
+  }
 }
-
-.prev-button, .next-button {
-  margin: 5px;
-}
-

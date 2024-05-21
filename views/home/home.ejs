@@ -1,6 +1,6 @@
 <% layout("/layouts/boilerplate")%>
 
-<div class="main-page">
+<div class=".banner-body">
   <div class="banner">
     <img
       src="https://img.freepik.com/premium-vector/quiz-logo-with-speech-bubble-icon_149152-811.jpg"
@@ -10,10 +10,15 @@
       <h1>Welcome to the Quiz App</h1>
       <p>Test your knowledge with our fun and challenging quizzes!</p>
       <% if (!currUser) { %>
-        <button><a href="/login" class="no_underline">Play Quiz</a></button>
+        <button><a href="/login" class="no_underline">Login or Sign Up to Play Quiz</a></button>
       <% } %>
       <% if (currUser) { %>
-        <button><a href="/quiz" class="no_underline">Play Quiz</a></button>
+
+        <button><a href="/quiz/python" class="no_underline">Play Python Quiz</a></button>
+        <button><a href="/quiz/java" class="no_underline">Play Java Quiz</a></button>
+        <button><a href="/quiz/dsa" class="no_underline">Play DSA Quiz</a></button>
+        <button><a href="/quiz/generalquiz" class="no_underline">Play General Quiz</a></button>
+
       <% } %>
       
     </div>

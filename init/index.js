@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const initData = require("./data.js");
-const Question = require("../Models//quiz.js");
+const DSAQuestion = require("../Models/dsa.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/quizapp";
 
@@ -17,7 +17,7 @@ async function main() {
 }
 
 const initDB = async () => {
-  await Question.insertMany(initData.data);
+  await DSAQuestion.insertMany(initData.data);
   console.log("DATA SAVED");
 };
 
