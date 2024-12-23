@@ -131,5 +131,5 @@ app.get("/quiz/dsa", async (req, res) => {
 
 const port = 3600;
 app.listen(port, () => {
-  console.log("Server is Running on Port 8080");
+  console.log("Server is Running on Port 3600");
 });
